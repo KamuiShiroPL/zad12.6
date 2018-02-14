@@ -14,5 +14,14 @@ $.ajax({
 }
 
 function showCountriesList(resp) {
+  console.log(resp)
   countriesList.empty();
+  resp.forEach(function(item){
+    var currencyElement = $('<span>').text(' ('+item.currencies[0]+')');
+     	$('<li>')
+        .text(item.name)
+        .appendTo(countriesList)
+        .append(currencyElement);
+  });
+
 }
